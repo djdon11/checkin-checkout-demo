@@ -1,6 +1,22 @@
-<% url, css_class = activity_action_url(activity_children) %>
-<%= link_to url, class: "list-group-item #{css_class} ", remote: true, id: "ac_#{activity_children.id}", method: 'post'  do %>
-   <%= "#{activity_children.child.first_name} #{activity_children.child.last_name}" %>
-    <span class="float-right time-wrap"><span><%= std_time(activity_children.check_in) %></span>
-    <span><%= std_time(activity_children.check_out) %></span></span>
+<% url, css_class, confirm_needed = activity_action_url(activity_children) %>
+<% if confirm_needed %>
+
+  <%= link_to url, class: "list-group-item #{css_class}", remote: true, id: "ac_#{activity_children.id}", method: 'post'  , :data => {:confirm => 'Are you sure to undo this?'} do %>
+     <%= "#{activity_children.child.first_name} #{activity_children.child.last_name}" %>
+      <span class="float-right time-wrap">
+        <span><%= std_time(activity_children.check_in) %></span>
+        <span><%= std_time(activity_children.check_out) %></span>
+      </span>
+  <% end %>
+
+<% else %>
+
+  <%= link_to url, class: "list-group-item #{css_class}", remote: true, id: "ac_#{activity_children.id}", method: 'post' do %>
+    <%= "#{activity_children.child.first_name} #{activity_children.child.last_name}" %>
+    <span class="float-right time-wrap">
+      <span><%= std_time(activity_children.check_in) %></span>
+      <span><%= std_time(activity_children.check_out) %></span>
+    </span>
+  <% end %>
+
 <% end %>
