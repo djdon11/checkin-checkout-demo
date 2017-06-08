@@ -13,6 +13,7 @@ class ActivitiesController < ApplicationController
     @activity_children = ActivityChild.includes(:child)
   end
 
+
   private
 
   def set_activity

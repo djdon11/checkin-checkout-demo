@@ -1,13 +1,12 @@
 module ApplicationHelper
 
-  def child_status(activity_child)
-    if activity_child.check_in.present? && activity_child.check_out.present?
+  def activity_action_url(activity_child)
+    return undo_check_in_activity_child_path(id: activity_child.id), "list-group-item-success"  if activity_child.check_out.present?   
 
-    elsif activity_child.check_out.present?
+    return set_check_out_activity_child_path(id: activity_child.id), "list-group-item-info"  if activity_child.check_in.present?
 
-    elsif activity_child.check_in.present?    
-      
-    end
+    [set_check_in_activity_child_path(id: activity_child.id), "list-group-item-danger" ]
   end
+
 
 end

@@ -1,2 +1,3 @@
-<%= link_to "#{activity_children.child.first_name} #{activity_children.child.last_name}"  , "", class: "list-group-item list-group-item-danger" %>
+<% url, css_class = activity_action_url(activity_children) %>
+<%= link_to "#{activity_children.child.first_name} #{activity_children.child.last_name}" , url, class: "list-group-item #{css_class} ", remote: true, id: "ac_#{activity_children.id}", method: 'post' %>
 
