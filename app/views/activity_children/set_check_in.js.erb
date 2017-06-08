@@ -1,2 +1,3 @@
 $('#ac_<%= @activity_child.id %>').replaceWith('<%= escape_javascript render(:partial => "activities/children_list", locals: {activity_children: @activity_child}) %>')
-$('#activity_checkins').html("<%= activity_checkins(@activity) %>");
+$('#activity_checkins').html("<%= activity_checkins(@activity) %>"); 
+$('#all_activity_checkins').html("<%= all_activity_checkins() %>"); 

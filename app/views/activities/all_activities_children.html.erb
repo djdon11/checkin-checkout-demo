@@ -3,7 +3,7 @@
   <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
   <h1>All Activities</h1>
 </div>
-<div id="activity_checkins_all" class="text-center"><%= all_activity_checkins %></div>
+<div id="all_activity_checkins" class="text-center"><%= all_activity_checkins %></div>
 <div class="list-group">
   <%= render :partial => "children_list", :collection => @activity_children, :as => :activity_children, locals: {from_all: true} %>
 </div>
