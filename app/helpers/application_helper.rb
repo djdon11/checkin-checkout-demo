@@ -8,5 +8,19 @@ module ApplicationHelper
     [set_check_in_activity_child_path(id: activity_child.id), "list-group-item-danger" ]
   end
 
+  def std_time(ac)
+    return nil if ac.blank?
+    ac.strftime("%H:%M") 
+  end
+
+  def activity_checkins(activity)
+    return nil if activity.blank?
+    "#{activity.check_in_childrens_counts}/ #{activity.children.count}"
+  end
+
+  def all_activity_checkins
+    "#{ActivityChild.check_in_childrens_counts}/ #{ActivityChild.count}"
+  end
+
 
 end

@@ -21,5 +21,6 @@ class ActivityChildrenController < ApplicationController
 
   def find_activity_child
     @activity_child = ActivityChild.find(params[:id])
+    @activity = @activity_child.activity
   end
 end

@@ -1,9 +1,11 @@
+<span class="back-btn"><%= link_to "Back", activities_path %> </span>
 <div class="page-header text-center">
   <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
   <h1>All Activities</h1>
 </div>
+<div id="activity_checkins_all" class="text-center"><%#= all_activity_checkins %></div>
 <div class="list-group">
-  <%= render :partial => "children_list", :collection => @activity_children, :as => :activity_children %>
+  <%= render :partial => "children_list", :collection => @activity_children, :as => :activity_children, locals: {from_all: true} %>
 </div>
 
 

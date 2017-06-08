@@ -12,3 +12,30 @@
  *
  */
  @import "bootstrap";
+
+.time-wrap span { 
+  clear:both;
+  display: block;
+  margin: -10px 0;
+  line-height: 28px;
+}
+
+.back-btn a { 
+  color: #fff;
+  position: relative;
+  top: 35px;
+  border-width: 15px 15px 15px 0;
+  border-style: solid;
+  border-color: transparent #000 transparent transparent;
+  font-size: 0;  
+}
+
+.back-btn a:after { 
+  content: "";
+  width: 23px;
+  height: 6px;
+  background-color: #000;
+  position: absolute;
+  left: 15px;
+  top: -3px;
+}
